@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melody - Music for everyone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand"><span class="brand-icon">♫</span> melody</div>
+
+            <nav class="main-nav">
+                <a href="#" class="nav-link active" data-page="home"><span>⌂</span> Home</a>
+                <a href="#" class="nav-link" data-page="search"><span>⌕</span> Search</a>
+                <a href="#" class="nav-link" data-page="library"><span>▤</span> Your Library</a>
+            </nav>
+
+            <div class="sidebar-section">
+                <div class="section-heading">YOUR COLLECTION <button id="addPlaylist" title="Add playlist">＋</button></div>
+                <a href="#" class="collection-link" data-filter="Liked Songs"><span class="liked-icon">♥</span> Liked Songs</a>
+                <a href="#" class="collection-link" data-filter="Chill Mix"><span class="playlist-icon">▣</span> Chill Mix</a>
+                <a href="#" class="collection-link" data-filter="Daily Vibes"><span class="playlist-icon">▣</span> Daily Vibes</a>
+                <a href="#" class="collection-link" data-filter="Focus Mode"><span class="playlist-icon">▣</span> Focus Mode</a>
+            </div>
+
+            <div class="sidebar-bottom">
+                <div class="upgrade-card">
+                    <div class="upgrade-symbol">✦</div>
+                    <strong>Good music, good mood.</strong>
+                    <p>Your little corner for every kind of day.</p>
+                </div>
+                <div class="profile"><div class="avatar">A</div><div><strong>Guest User</strong><small>Free account</small></div><span class="more">•••</span></div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <div class="history-buttons"><button aria-label="Back">‹</button><button aria-label="Forward">›</button></div>
+                <div class="search-box" id="searchBox"><span>⌕</span><input id="searchInput" type="text" placeholder="What do you want to play?"></div>
+                <button class="premium-button" id="premiumButton">Explore Premium</button>
+            </header>
+
+            <section class="welcome" id="welcome">
+                <div>
+                    <p class="eyebrow">MONDAY MOOD · YOUR MUSIC SPACE</p>
+                    <h1>Find your<br><em>soundtrack.</em></h1>
+                    <p class="welcome-text">A good song can change the whole day. Press play and let it happen.</p>
+                    <button class="green-button" id="mixPlay">▶ &nbsp; Play your mix</button>
+                </div>
+                <div class="hero-art" aria-hidden="true">
+                    <div class="disc"><div class="disc-center">♫</div></div>
+                    <div class="hero-note note-one">♪</div><div class="hero-note note-two">♫</div>
+                </div>
+            </section>
+
+            <section class="quick-section" id="quickSection">
+                <div class="section-title-row"><h2>Made for your day</h2><button class="text-button" id="showAll">Show all</button></div>
+                <div class="quick-grid" id="quickGrid"></div>
+            </section>
+
+            <section class="music-section" id="musicSection">
+                <div class="section-title-row"><div><p class="eyebrow">A LITTLE SOMETHING FOR YOU</p><h2>Popular right now</h2></div><button class="text-button" id="showAllSongs">See all</button></div>
+                <div class="track-list" id="trackList"></div>
+            </section>
+
+            <section class="music-section hidden" id="searchResults">
+                <div class="section-title-row"><div><p class="eyebrow">YOUR SEARCH</p><h2 id="resultsTitle">Search results</h2></div></div>
+                <div class="track-list" id="resultsList"></div>
+            </section>
+
+            <section class="music-section hidden" id="librarySection">
+                <div class="section-title-row"><div><p class="eyebrow">YOUR COLLECTION</p><h2 id="libraryTitle">Your Library</h2></div></div>
+                <div class="track-list" id="libraryList"></div>
+            </section>
+
+            <footer>Made with ♡ for music lovers <span>Melody · Frontend Mini Project</span></footer>
+        </main>
+    </div>
+
+    <div class="player">
+        <div class="now-playing">
+            <div class="mini-cover" id="playerCover">♫</div>
+            <div class="now-text"><strong id="playerTitle">Choose a song</strong><small id="playerArtist">Your next favourite is waiting</small></div>
+            <button class="like-button" id="playerLike" title="Like song">♡</button>
+        </div>
+        <div class="player-center">
+            <div class="player-controls">
+                <button id="shuffleButton" title="Shuffle">⤨</button>
+                <button id="previousButton" title="Previous">|◀</button>
+                <button class="play-button" id="playButton" title="Play">▶</button>
+                <button id="nextButton" title="Next">▶|</button>
+                <button id="repeatButton" title="Repeat">↻</button>
+            </div>
+            <div class="progress-area"><span id="currentTime">0:00</span><input type="range" id="progressBar" min="0" max="100" value="0"><span id="duration">0:00</span></div>
+        </div>
+        <div class="player-right"><span>♫</span><input type="range" id="volumeBar" min="0" max="1" step="0.01" value="0.7"><span>▣</span></div>
+    </div>
+
+    <audio id="audioPlayer"></audio>
+    <div class="toast" id="toast"></div>
+    <script src="script.js"></script>
+</body>
+</html>
